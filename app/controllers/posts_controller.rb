@@ -15,6 +15,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
@@ -39,6 +42,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:image, :title, :introduction)
+    params.require(:post).permit(:image, :title, :introduction, :tag_list)
   end
 end

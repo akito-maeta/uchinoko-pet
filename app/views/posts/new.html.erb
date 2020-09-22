@@ -11,6 +11,10 @@
   <%= f.text_area :introduction %>
 </div>
 <div>
+  <%= f.label :タグ入力 %>
+  <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
+</div>
+<div>
   <%= f.submit "投稿する" %>
 </div>
 <% end %>
