@@ -1,0 +1,7 @@
+<h2>投稿編集</h2>
+
+<%= form_for @post, :url => {controller: "posts", action: "update"} do |f| %>
+  <%= f.attachment_field :image %>
+  <%= f.text_area :introduction %>
+  <%= f.submit "更新" %>
+<% end %>
