@@ -1,0 +1,8 @@
+<h1>投稿しましょう</h1>
+
+<%= form_for @post, :url => {controller: "posts", action: "create"} do |f| %>
+  <%= f.attachment_field :image %>
+  <%= f.text_field :title %>
+  <%= f.text_area :introduction %>
+  <%= f.submit "うちのこみて！" %>
+<% end %>
