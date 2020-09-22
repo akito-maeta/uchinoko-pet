@@ -1,7 +1,14 @@
 <h2>投稿詳細</h2>
 <%= attachment_image_tag @post, :image %>
-<%= @post.title %>
-<%= @post.introduction %>
+<div>
+  <%= @post.title %>
+</div>
+<div>
+  <%= @post.introduction %>
+</div>
+<div>
+  <%= render_with_hashtags(@post.hash_word) %>
+</div>
 
 <%= link_to "編集する", edit_post_path(@post) %>
 <% if @post.user == current_user %>

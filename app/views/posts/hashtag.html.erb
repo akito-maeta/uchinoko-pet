@@ -1,0 +1,19 @@
+<% if params[:name] == nil %>
+
+<% else %>
+<h3>#<%= @hashtag.hashname %>  投稿<%= @post.count %> 件 </h3>
+  <% @post.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+  <% end %>
+<% end %>
+
+<% @hashtags.sort.reverse.each do |count| %>
+  <% count[1].each do |hashtag| %>
+    <p>
+      <%= link_to  "##{hashtag.hashname} (#{hashtag.posts.count}) 件","/post/hashtag/#{hashtag.hashname}" %>
+    </p>
+  <% end %>
+<% end %>
+
+<% end %>
