@@ -1,0 +1,27 @@
+<h2><%= @user.name %>のマイページ</h2>
+
+<h3>登録情報</h3>
+  <%= link_to '編集する', edit_user_path %>
+
+
+<table border="1">
+  <tr>
+    <td>ユーザーネーム</td>
+    <td><%= @user_name %></td>
+  </tr>
+  <tr>
+    <td>うちのこの名前</td>
+    <td><%= @user.pet_name %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+  <% end %>
+<% end %>

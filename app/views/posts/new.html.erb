@@ -2,7 +2,15 @@
 
 <%= form_for @post, :url => {controller: "posts", action: "create"} do |f| %>
   <%= f.attachment_field :image %>
+<div>
+  <%= f.label :タイトル %>
   <%= f.text_field :title %>
+</div>
+<div>
+  <%= f.label :キャプション %>
   <%= f.text_area :introduction %>
-  <%= f.submit "うちのこみて！" %>
+</div>
+<div>
+  <%= f.submit "投稿する" %>
+</div>
 <% end %>
