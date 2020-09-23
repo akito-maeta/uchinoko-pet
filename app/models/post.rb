@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   attachment :image
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
+  has_many :likes, dependent: :destroy
 
     #DBへのコミット直前に実施する
   after_create do
@@ -24,6 +25,10 @@ class Post < ApplicationRecord
       tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
       post.hashtags << tag
     end
+  end
+
+  def liked_by?(user) #いいねしているかどうか
+    likes.where(user_id: user.id).exists?
   end
 
 end
