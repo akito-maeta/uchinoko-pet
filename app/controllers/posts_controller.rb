@@ -37,6 +37,13 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def hashtag
+    @user = current_user
+    @hashtag = Hashtag.find_by(hashname: params[:name])
+    @posts = @hashtag.posts.build
+    @post  = @hashtag.posts
+  end
+
   private
   def post_params
     params.require(:post).permit(:image, :title, :introduction)
