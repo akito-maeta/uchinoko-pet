@@ -1,12 +1,36 @@
 <h2>投稿詳細</h2>
-<%= attachment_image_tag @post, :image, :fill, 100, 100 %>
-<%= @post.title %>
+<tbody>
+  <%= attachment_image_tag @post, :image, :fill, 100, 100 %>
+  <%= @post.title %>
 
-<%= render_with_hashtags(@post.introduction) %>
+  <%= render_with_hashtags(@post.introduction) %>
 
-<%= link_to "編集する", edit_post_path(@post) %>
-<% if @post.user == current_user %>
-  <%= link_to "削除", post_path(@post), method: :delete %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+
+  <% if @post.user == current_user %>
+    <%= link_to "削除", post_path(@post), method: :delete %>
+  <% end %>
+
+  <tr class="post_<%= @post.id %>">
+    <%= render 'detail', post: @post %>
+  </tr>
+
+  コメント<%= @post.comments.count %>件
+
+</tbody>
+<div>
+<% @comments.each do |comment| %>
+<div>
+  <%= comment.user.name %>
+  <%= comment.body %>
+</div>
+  <% if comment.user == current_user %>
+    <%= link_to '削除', post_comment_path(comment), method: :delete %>
+  <% end %>
 <% end %>
+</div>
 
-<%= render 'detail', post: @post %>
+<%= form_with model:[@post, @comment] do |f| %>
+  <%= f.text_area :body %>
+  <%= f.submit '投稿する' %>
+<% end %>

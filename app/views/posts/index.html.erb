@@ -5,7 +5,7 @@
       <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
     <% end %>
 
-    <tr>
+    <tr class="post_<%= post.id %>">
       <%= render 'post', post: post %>
     </tr>
 

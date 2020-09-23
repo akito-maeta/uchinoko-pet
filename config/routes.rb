@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do
     resource :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :users,param: :name, path: '/', only: [:show, :edit, :update]
   get '/post/hashtag/:name' => "posts#hashtag"

@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
     #DBへのコミット直前に実施する
   after_create do
