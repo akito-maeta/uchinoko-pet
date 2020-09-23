@@ -1,6 +1,13 @@
 <h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-  <%= link_to post_path(post) do %>
-    <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+<tbody>
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+    <% end %>
+
+    <tr>
+      <%= render 'like', post: post %>
+    </tr>
+
   <% end %>
-<% end %>
+</tbody>

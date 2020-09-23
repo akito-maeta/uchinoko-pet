@@ -1,5 +1,5 @@
 <h2>投稿詳細</h2>
-<%= attachment_image_tag @post, :image %>
+<%= attachment_image_tag @post, :image, :fill, 100, 100 %>
 <%= @post.title %>
 
 <%= render_with_hashtags(@post.introduction) %>
