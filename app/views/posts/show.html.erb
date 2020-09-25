@@ -1,36 +1,31 @@
 <h2>投稿詳細</h2>
+<div>
+  <%= attachment_image_tag @post.user, :image, :fill, 50, 50, class: "img-circle pull-left profile-thumb" %>
+  <%= link_to @post.user.pet_name, user_path(@post.user) %>
+</div>
+
 <tbody>
   <%= attachment_image_tag @post, :image, :fill, 100, 100 %>
   <%= @post.title %>
 
   <%= render_with_hashtags(@post.introduction) %>
 
-  <%= link_to "編集する", edit_post_path(@post) %>
-
   <% if @post.user == current_user %>
+    <%= link_to "編集する", edit_post_path(@post) %>
+
     <%= link_to "削除", post_path(@post), method: :delete %>
   <% end %>
-
-  <tr class="post_<%= @post.id %>">
-    <%= render 'detail', post: @post %>
-  </tr>
-
-  コメント<%= @post.comments.count %>件
-
 </tbody>
-<div>
-<% @comments.each do |comment| %>
-<div>
-  <%= comment.user.name %>
-  <%= comment.body %>
-</div>
-  <% if comment.user == current_user %>
-    <%= link_to '削除', post_comment_path(comment), method: :delete %>
-  <% end %>
-<% end %>
+
+<div class="show_like_<%= @post.id %>">
+  <%= render 'detail', post: @post %>
 </div>
 
-<%= form_with model:[@post, @comment] do |f| %>
+<div class="comment_<%= @post.id %>">
+<%= render 'posts/comment', comments: @post.comments %>
+</div>
+
+<%= form_with model:[@post, @comment], data: {remote: true} do |f| %>
   <%= f.text_area :body %>
   <%= f.submit '投稿する' %>
 <% end %>

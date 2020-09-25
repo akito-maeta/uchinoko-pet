@@ -1,0 +1,22 @@
+<h2>いいね順</h2>
+
+<div class="area">
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+    <div class="item">
+      <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
+        <div class="">
+          <div class="">
+            <%= post.title %>
+          </div>
+          <div class="">
+      <% end %>
+        <%= link_to post.user.pet_name, user_path(post.user) %>
+          </div>
+          <div class="index_like_<%= post.id %>">
+            <%= render 'posts/post', post: post %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

@@ -1,13 +1,3 @@
 <h1>投稿一覧</h1>
-<tbody>
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post) do %>
-      <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
-    <% end %>
 
-    <tr class="post_<%= post.id %>">
-      <%= render 'post', post: post %>
-    </tr>
-
-  <% end %>
-</tbody>
+<%= render 'index', posts: @posts %>

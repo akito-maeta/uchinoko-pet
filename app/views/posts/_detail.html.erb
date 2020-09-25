@@ -1,9 +1,11 @@
-<% if @post.liked_by?(current_user) %>
-  <%= link_to post_likes_path(@post), method: :delete, remote: true do %>
-  <span class="glyphicon glyphicon-heart"><%= @post.likes.count%></span>
+<% if post.liked_by?(current_user) %>
+  <%= link_to post_likes_path(post), method: :delete, remote: true do %>
+  <span class="glyphicon glyphicon-heart"><%= post.likes.count%></span>
   <% end %>
 <% else %>
-  <%= link_to post_likes_path(@post), method: :post, remote: true do %>
-  <span class="glyphicon glyphicon-heart-empty"><%= @post.likes.count %></span>
+  <%= link_to post_likes_path(post), method: :post, remote: true do %>
+  <span class="glyphicon glyphicon-heart-empty"><%= post.likes.count %></span>
   <% end %>
 <% end %>
+
+  コメント<%= @post.comments.count %>件
