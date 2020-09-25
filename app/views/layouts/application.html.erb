@@ -9,30 +9,42 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-    <% if user_signed_in? %>
-      <li class="">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li class="">
-        <%= link_to '投稿フォーム', new_post_path %>
-      </li>
-      <li class="">
-        <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-        <%= link_to 'マイページ', user_path(current_user.name) %>
-      </li>
-    <% else %>
-      <li class="">
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li class="">
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <nav class="navbar navbar-fixed-top">
+      <div class="v_line_fix">
+        <div class="container">
+          <nav class="nav navbar-nav navbar-left">
+            <div id="slidemenu">
+              <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+                <% if user_signed_in? %>
+                  <li class="">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+                  <li class="">
+                    <%= link_to '投稿フォーム', new_post_path %>
+                  </li>
+                  <li class="">
+                    <%= link_to 'マイページ', user_path(current_user.id) %>
+                  </li>
+                  <li class="">
+                    <%= link_to '投稿一覧', posts_path %>
+                  </li>
+                <% else %>
+                  <li class="">
+                    <%= link_to "新規登録", new_user_registration_path %>
+                  </li>
+                  <li class="">
+                    <%= link_to "ログイン", new_user_session_path %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
 </html>

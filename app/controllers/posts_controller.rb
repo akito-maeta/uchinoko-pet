@@ -17,8 +17,14 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def likerank
+    @posts = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+  end
+
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   def edit
@@ -41,7 +47,7 @@ class PostsController < ApplicationController
     @user = current_user
     @hashtag = Hashtag.find_by(hashname: params[:name])
     @posts = @hashtag.posts.build
-    @post  = @hashtag.posts
+    @post = @hashtag.posts
   end
 
   private

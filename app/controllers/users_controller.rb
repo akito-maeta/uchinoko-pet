@@ -1,22 +1,23 @@
 class UsersController < ApplicationController
 
 def show
-    @user = User.find_by(name: params[:name])
+    @user = User.find(params[:id])
     @posts = @user.posts
   end
 
   def edit
-    @user = User.find_by(name: params[:name])
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find_by(name: params[:name])
+    @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   private
-  def owner_params
-    params.require(:user).permit(:name, :pet_name, :image, :email)
+  def user_params
+    params.require(:user).permit(:name, :pet_name, :image, :email, :introduction)
   end
+
 end
