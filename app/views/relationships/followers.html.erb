@@ -1,0 +1,6 @@
+<h2>フォロワー一覧</h2>
+<% if @users.count > 0 %>
+<%= render 'relationships/relationindex', users: @users %>
+<% else %>
+<p>フォロワーはいません</p>
+<% end %>
