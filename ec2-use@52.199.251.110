@@ -1,0 +1,4 @@
+DB_USERNAME="root"
+DB_PASSWORD="koikinngu20"
+DB_HOST="rds-mysql-server.ct0hh7l2kjyn.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="sampledb"
