@@ -1,14 +1,53 @@
 <h1>投稿しましょう</h1>
+<div class="row">
+  <div class="col-lg-2">
+  </div>
+    <%= form_for @post, :url => {controller: "posts", action: "create"} do |f| %>
+      <div class="col-lg-4">
 
-<%= form_for @post, :url => {controller: "posts", action: "create"} do |f| %>
-  <%= f.attachment_field :image %>
-<div>
-  <%= f.text_field :title, :placeholder => "タイトル", size: "41" %>
+         <img id="img_prev" width=300 height=300 src="#" class='hidden' />
+              <%= attachment_image_tag @post, :image, fallback: "noimage.jpg", size:"300x300", class: 'default_img' %>
+
+        <div class="apn-attachment_field">
+          <%= f.attachment_field :image, :id => 'post_img' %>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="new-title">
+          <%= f.text_field :title, :placeholder => "タイトル", size: "41" %>
+        </div>
+        <div class="new-body">
+          <%= f.text_area :introduction, :placeholder => "本文", size: "40x10" %>
+        </div>
+        <div class="new-submit">
+          <%= f.submit "シェア" %>
+        </div>
+    <% end %>
+      </div>
+  <div class="col-lg-2">
+  </div>
 </div>
-<div>
-  <%= f.text_area :introduction, :placeholder => "本文", size: "40x10" %>
-</div>
-<div>
-  <%= f.submit "投稿する" %>
-</div>
-<% end %>
+
+
+
+<%# ここから画像プレビュー機能(jquery) %>
+<script>
+  $( document ).on('turbolinks:load', function() {
+    function readfile(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#post_img").change(function(){
+      $('#img_prev').removeClass('hidden');
+      $('.default_img').remove();
+      readfile(this);
+    });
+  });
+</script>
+<%# ここまで画像プレビュー機能(jquery) %>
