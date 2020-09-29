@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.14.1"
 
-set :application, "uchinoko_pet"
+set :application, "uchinoko-pet"
 set :repo_url, "git@github.com:akito-maeta/uchinoko-pet.git"
 
 # Default branch is :master

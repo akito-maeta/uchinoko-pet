@@ -3,12 +3,10 @@
 <%= form_for @post, :url => {controller: "posts", action: "create"} do |f| %>
   <%= f.attachment_field :image %>
 <div>
-  <%= f.label :タイトル %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :placeholder => "タイトル", size: "41" %>
 </div>
 <div>
-  <%= f.label :キャプション %>
-  <%= f.text_area :introduction %>
+  <%= f.text_area :introduction, :placeholder => "本文", size: "40x10" %>
 </div>
 <div>
   <%= f.submit "投稿する" %>

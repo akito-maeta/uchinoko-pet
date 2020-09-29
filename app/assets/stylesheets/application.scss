@@ -16,6 +16,52 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-image: image-url("blue5.jpg");
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.container {
+  width: 87%;
+  background-color: white;
+}
+
+header {
+  width: 100%;
+  padding: 3px 10% 3px;
+  background-color: #333333;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+nav {
+  margin: 0 0 0 auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  margin: 0 0 0 15px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: #cccccc;
 }
