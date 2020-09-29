@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :followers_user, through: :followed, source: :follower # 自分をフォローしている人(自分がフォローされている人)
 
+  geocoded_by :address
+  after_validation :geocode
+
   # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
