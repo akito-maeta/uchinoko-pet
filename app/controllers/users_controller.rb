@@ -16,8 +16,6 @@ def show
   end
 
 
-
-
   private
   def user_params
     params.require(:user).permit(:name, :pet_name, :image, :email, :introduction, :address, :latitude, :longitude)

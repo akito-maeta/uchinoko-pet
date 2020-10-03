@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'homes#about'
+
   devise_for :users
-  root 'posts#index'
   resources :posts do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   get '/post/hashtag/:name' => "posts#hashtag"
 
   get '/posts/likerank' => "posts#likerank"
+
 
 
 

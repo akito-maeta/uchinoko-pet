@@ -1,9 +1,14 @@
 <% if post.liked_by?(current_user) %>
-  <%= link_to post_likes_path(post), method: :delete, remote: true do %>
-  <span class="glyphicon glyphicon-heart"><%= post.likes.count%></span>
-  <% end %>
+  <div class="box-like">
+    <%= link_to(post_likes_path(post), method: :delete, remote: true, class: 'like-link') do %>
+    <i class="fas fa-heart"></i> <%= post.likes.count %>
+    <% end %>
+  </div>
 <% else %>
-  <%= link_to post_likes_path(post), method: :post, remote: true do %>
-  <span class="glyphicon glyphicon-heart-empty"><%= post.likes.count %></span>
-  <% end %>
+  <div class="box-liked">
+    <%= link_to(post_likes_path(post), method: :post, remote: true, class: 'liked-link') do %>
+    <i class="fas fa-heart"></i> <%= post.likes.count %>
+    <% end %>
+  </div>
 <% end %>
+
