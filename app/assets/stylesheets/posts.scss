@@ -22,8 +22,7 @@
 .post-attachment {
   margin: 0 10% 10px;
 }
-
-//タイトル部分
+//タイトル
 .post-box-title input[type="text"] {
   border-style: none;
   margin-bottom: 15px;
@@ -37,8 +36,7 @@
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: 500;
 }
-
-//本文部分
+//本文
 .post-textlines {
   margin-bottom: 15px;
   border: 1px solid #a6a6a6;
@@ -50,7 +48,6 @@
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-weight: 500;
 }
-
 //シェアボタン
 .post-box-submit input[type="submit"] {
   border-style: none;
@@ -73,12 +70,10 @@
 .item {
   padding: 0 0 20px 20px;
 }
-
 .new-area {
   display: flex;
   justify-content: around;
 }
-
 //index-投稿タイトル名
 a.post-title-link:hover,
 a.post-title-link:active,
@@ -103,7 +98,8 @@ a.petname-link:visited {
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-//いいね
+
+//index-いいね
 //いいねする時の動き
 a.liked-link:hover,
 a.liked-link:active,
@@ -151,4 +147,129 @@ a.like-link:link {
 
 
 
+//詳細
+.show-right-box {
+  width: 100%;
+  height: 280px;
+}
+.post-show-pro-name {
+  width: 100%;
+  height: 60px;
+}
+.post-show-profile {
+  margin: 10px 5px 10px 10px;
+  float: left;
+}
+.post-show-petname {
+  width: 150px;
+  line-height: 60px;
+  float: left;
+}
+.post-show-follow {
+}
+.kk{
+  width: 100%;
+  border: 0.5px #e5e5e5 solid;
+}
+.post-show-title {
+  font-size: 20px;
+  color: #333333;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+//show-いいね
+//いいねする時の動き
+a.show-liked-link:hover,
+a.show-liked-link:active,
+a.show-liked-link:link {
+  border: 1px #bbbbbb solid;
+  color: #333333;
+  text-decoration: none;
+}
+//いいねされている状態
+.show-box-like a {
+  display: block;
+  width: 60px;
+  height: 25px;
+  font-size: 14px;
+  color: #ff5500;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+}
+//いいね外される時の動き
+a.show-like-link:hover,
+a.show-like-link:active,
+a.show-like-link:link {
+  border: 1px #ff5500 solid;
+  color: #ff5500;
+  text-decoration: none;
+}
+//いいねされていない状態
+.show-box-liked a {
+  display: block;
+  width: 60px;
+  height: 25px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+}
 
+//コメント
+
+.comment {
+  width: 100%;
+  color: black;
+  border: 1px pink solid;
+}
+
+.comment-create {
+  width: 100%;
+  border: 1px red solid;
+}
+.comment-area {
+  width: 100%;
+  border: 5px red solid;
+}
+.comment-item {
+  width: 100%;
+  color: black;
+  padding: 10px 10px 10px 0;
+  border: 1px blue solid;
+}
+.comment-left-box {
+  float: left;
+}
+.comment-avatar {
+  padding-right: 10px;
+}
+.comment-right-box {
+  float: left;
+}
+.comment-name-date {
+  height: 20px;
+  border: 1px red solid;
+  margin-leht: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.comment-petname {
+  border: 1px green solid;
+  height: 20px;
+  line-height: 20px;
+}
+.comment-date {
+  height: 20px;
+  line-height: 20px;
+}
+h6 {
+  color: black;
+}

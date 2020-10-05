@@ -20,12 +20,12 @@
     <nav>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li><%= link_to 'ホーム', posts_path, class: "navlink" %></li>
-          <li><%= link_to '投稿する', new_post_path, class: "navlink" %></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle item link" data-toggle="dropdown">
-              <%= attachment_image_tag current_user, :image, :fill, 30, 30, class: "img-circle header-img navlink" %>
-              <%= current_user.pet_name %>
+          <li class="li-home"><%= link_to 'ホーム', posts_path, class: "navlink" %></li>
+          <li class="li-new"><%= link_to '投稿する', new_post_path, class: "navlink" %></li>
+          <li class="dropdown li-name">
+            <a class="dropdown-toggle item link li-name" data-toggle="dropdown">
+              <%= attachment_image_tag current_user, :image, size:"30x30", fallback: "noimage.jpg", class: "img-circle header-img navlink" %>
+              <%= current_user.pet_name.truncate(12) %>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
@@ -35,7 +35,7 @@
               <li role="menu"><%= link_to 'フォロワー', user_followers_path(current_user) %></li>
             </ul>
           </li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navlink" %></li>
+          <li class="li-out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "navlink" %></li>
         <% else %>
           <li><%= link_to "新規登録はこちらから", new_user_registration_path, class: "navlink" %></li>
           <li><%= link_to "ログイン", new_user_session_path, class: "navlink" %></li>

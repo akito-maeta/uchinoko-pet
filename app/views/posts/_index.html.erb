@@ -7,11 +7,11 @@
           <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
             <div class="">
               <div class="post-title">
-                <%= post.title %>
+                <%= post.title.truncate(15) %>
               </div>
               <div class="post-petname">
           <% end %>
-            <%= link_to post.user.pet_name, user_path(post.user), class: "petname-link" %>
+            <%= link_to post.user.pet_name.truncate(15), user_path(post.user), class: "petname-link" %>
               </div>
               <div class="index_like_<%= post.id %>">
                 <%= render 'posts/post', post: post %>

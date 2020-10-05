@@ -1,9 +1,23 @@
-<% comments.each do |comment| %>
-<div>
-  <%= link_to comment.user.name, user_path(comment.user) %>
-  <%= comment.body %>
-</div>
-  <% if comment.user == current_user %>
-    <%= link_to '削除', post_comment_path(comment), method: :delete %>
-  <% end %>
+<% @comments.each do |comment| %>
+  <div>
+    <div>
+    <%= link_to user_path(comment.user) do %>
+      <%= attachment_image_tag comment.user, :image, :fill, 20, 20, class: "img-circle" %>
+      <%= comment.user.pet_name %>
+    <% end %>
+    </div>
+    <div class="comment-body">
+      <%= comment.body %>
+    </div>
+  </div>
+
+    <% if comment.user == current_user %>
+      <%= link_to post_comment_path(comment), method: :delete do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
+
+
+

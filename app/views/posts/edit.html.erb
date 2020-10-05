@@ -4,26 +4,30 @@
     <h2 class="post-caption">編集しましょう</h2>
 
     <%= form_for @post, :url => {controller: "posts", action: "update"}, html: { class: "new-box" } do |f| %>
-        <img id="img_prev" width=250 height=250 src="#" class='hidden' />
-          <%= attachment_image_tag @post, :image, fallback: "noimage.jpg", size:"250x250", class: 'default_img' %>
+      <img id="img_prev" width=250 height=250 src="#" class='hidden' />
+        <%= attachment_image_tag @post, :image, fallback: "noimage.jpg", size:"250x250", class: 'default_img' %>
 
-        <div class="post-attachment">
-          <%= f.attachment_field :image, :id => 'post_img' %>
-        </div>
-
-        <div class="post-box-title">
-          <%= f.label :title, "タイトル", {class: 'post-box-title'} %><br />
-          <%= f.text_field :title, autofocus: true, autocomplete: "off", :placeholder => "タイトル" %>
-        </div>
-        <div class="post-box-introduction">
-          <%= f.label :introduction, "本文" %><br />
-          <%= f.text_area :introduction, autocomplete: "off", placeholder: introduction_placeholder, class: "post-textlines" %>
-        </div>
-        <div class="post-box-submit">
-          <%= f.submit "更新" %>
-        </div>
-      <% end %>
+      <div class="post-attachment">
+        <%= f.attachment_field :image, :id => 'post_img' %>
       </div>
+
+      <div class="post-box-title">
+        <%= f.label :title, "タイトル", {class: 'post-box-title'} %><br />
+        <%= f.text_field :title, autofocus: true, autocomplete: "off", :placeholder => "タイトル" %>
+      </div>
+
+      <div class="post-box-introduction">
+        <%= f.label :introduction, "本文" %><br />
+        <%= f.text_area :introduction, autocomplete: "off", placeholder: introduction_placeholder, class: "post-textlines" %>
+      </div>
+
+      <div class="post-box-submit">
+        <%= f.submit "更新" %>
+      </div>
+
+    <% end %>
+  </div>
+
   <div class="col-sm-4">
   </div>
 </div>

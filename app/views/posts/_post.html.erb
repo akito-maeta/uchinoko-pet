@@ -1,13 +1,13 @@
 <% if post.liked_by?(current_user) %>
   <div class="box-like">
     <%= link_to(post_likes_path(post), method: :delete, remote: true, class: 'like-link') do %>
-    <i class="fas fa-heart"></i> <%= post.likes.count %>
+      <i class="fas fa-heart"></i> <%= post.likes.count %>
     <% end %>
   </div>
 <% else %>
   <div class="box-liked">
     <%= link_to(post_likes_path(post), method: :post, remote: true, class: 'liked-link') do %>
-    <i class="fas fa-heart"></i> <%= post.likes.count %>
+      <i class="fas fa-heart"></i> <%= post.likes.count %>
     <% end %>
   </div>
 <% end %>
