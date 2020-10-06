@@ -151,6 +151,7 @@ a.like-link:link {
 .show-right-box {
   width: 100%;
   height: 280px;
+  position: relative;
 }
 .post-show-pro-name {
   width: 100%;
@@ -160,10 +161,20 @@ a.like-link:link {
   margin: 10px 5px 10px 10px;
   float: left;
 }
+.post-show-img-pro {
+  border: 1px #e5e5e5 solid;
+}
 .post-show-petname {
   width: 150px;
   line-height: 60px;
   float: left;
+}
+a.post-show-petname-link:hover,
+a.post-show-petname-link:active,
+a.post-show-petname-link:visited,
+a.post-show-petname-link:link {
+  color: #333333;
+  text-decoration: none;
 }
 .post-show-follow {
 }
@@ -199,6 +210,8 @@ a.show-liked-link:link {
   border-radius: 3px;
   border: 1px #e5e5e5 solid;
   text-decoration: none;
+  position: absolute;
+  bottom: 0;
 }
 //いいね外される時の動き
 a.show-like-link:hover,
@@ -220,49 +233,44 @@ a.show-like-link:link {
   border-radius: 3px;
   border: 1px #e5e5e5 solid;
   text-decoration: none;
+  position: absolute;
+  bottom: 0;
 }
 
 //コメント
-
 .comment {
   width: 100%;
   color: black;
-  border: 1px pink solid;
 }
-
 .comment-create {
   width: 100%;
-  border: 1px red solid;
 }
 .comment-area {
   width: 100%;
-  border: 5px red solid;
 }
 .comment-item {
   width: 100%;
   color: black;
   padding: 10px 10px 10px 0;
-  border: 1px blue solid;
 }
 .comment-left-box {
   float: left;
+  width: 9%;
 }
 .comment-avatar {
-  padding-right: 10px;
 }
 .comment-right-box {
+  width: 91%;
   float: left;
 }
 .comment-name-date {
   height: 20px;
-  border: 1px red solid;
   margin-leht: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 .comment-petname {
-  border: 1px green solid;
   height: 20px;
   line-height: 20px;
 }
@@ -270,6 +278,40 @@ a.show-like-link:link {
   height: 20px;
   line-height: 20px;
 }
+.comment-body-button {
+  display: flex;
+  justify-content: space-between;
+}
+.comment-button {
+  border: 1px #e5e5e5 solid;
+}
+
+//コメント入力フォーム
+.comment-form-area {
+  margin: 20px 0 0 0;
+}
+.comment-textlines {
+  border: 1px solid #a6a6a6;
+  border-radius: 3px 0 0 3px;
+  padding: 5px 5px;
+  width: 90%;
+  height: 30px;
+  font-size: 15px;
+  float: left;
+}
+.comment-submit-button input[type="submit"] {
+  border-style: none;
+  width: 10%;
+  height: 30px;
+  background: #f50;
+  border-radius: 0 3px 3px 0;
+  color: #ffffff;
+  font-weight: 400;
+  float: left;
+}
+
+
+
 h6 {
   color: black;
 }

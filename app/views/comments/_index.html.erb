@@ -1,37 +1,72 @@
-<i class="fas fa-comment-alt"></i>  <%= @post.comments.count %> コメント
-  <h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る...</h6>
-  <% comments.each do |comment| %>
+<i class="fas fa-comment-alt"></i>  <%= @post.comments.count %>コメント
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+コメントをすべて見る</h6>
+<% comments.first(2).each do |comment| %>
+  <% unless comment.id.nil? %>
+    <div class="comment-item clearfix">
+      <div class="comment-left-box">
+        <div class="comment-avatar">
+          <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class: "img-circle comment-image", size: "40x40" %>
+        </div>
+      </div>
+      <div class="comment-right-box">
+        <div class="comment-name-date">
+          <div class="comment-petname">
+            <%= link_to comment.user.pet_name, user_path(comment.user.id) %>
+          </div>
+          <div class="comment-date">
+            <%= comment.created_at.to_s(:datetime) %>
+          </div>
+        </div>
+        <div class="comment-body-button">
+          <p class="comment-body">
+            <%= comment.body %>
+          </p>
+          <div class="comment-button">
+            <% if comment.user == current_user %>
+              <%= link_to post_comment_path(comment), method: :delete, remote: true do %>
+                <i class="fas fa-trash" style="color: #333333;"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="collapse" id="collapseExample">
+  <% comments.offset(2).each do |comment| %>
     <% unless comment.id.nil? %>
-
-<div class="comment-item clearfix">
-  <div class="comment-left-box">
-    <div class="comment-avatar">
-      <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class: "img-circle comment-image", size: "40x40" %>
-    </div>
-  </div>
-  <div class="comment-right-box">
-    <div class="comment-name-date">
-      <div class="comment-petname">
-        <%= link_to comment.user.pet_name, user_path(comment.user.id) %>
+      <div class="comment-item clearfix">
+        <div class="comment-left-box">
+          <div class="comment-avatar">
+            <%= attachment_image_tag comment.user, :image, fallback: "no_image.jpg", class: "img-circle comment-image", size: "40x40" %>
+          </div>
+        </div>
+        <div class="comment-right-box">
+          <div class="comment-name-date">
+            <div class="comment-petname">
+              <%= link_to comment.user.pet_name, user_path(comment.user.id) %>
+            </div>
+            <div class="comment-date">
+              <%= comment.created_at.to_s(:datetime) %>
+            </div>
+          </div>
+          <div class="comment-body-button">
+            <p class="comment-body">
+              <%= comment.body %>
+            </p>
+            <div class="comment-button">
+              <% if comment.user == current_user %>
+                <%= link_to post_comment_path(comment), method: :delete, remote: true do %>
+                  <i class="fas fa-trash" style="color: #333333;"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="comment-date">
-        <%= comment.created_at.to_s(:datetime) %>
-      </div>
-    </div>
-
-    <p class="comment-body">
-      <%= comment.body %>
-    </p>
-
-    <div class="comment-button">
-      <% if comment.user == current_user %>
-        <%= link_to post_comment_path(comment), method: :delete, remote: true do %>
-          <i class="fas fa-trash" style="color: #333333;"></i>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
     <% end %>
   <% end %>
+</div>

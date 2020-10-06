@@ -1,3 +1,34 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//follow-index
+.follow-index-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+.follow-item {
+  padding: 0 0 20px 20px;
+  margin: 5px 0 5px 0;
+}
+.follow-index-img {
+  border: 1px #e5e5e5 solid;
+}
+a.follow-index-name-link:hover,
+a.follow-index-name-link:active,
+a.follow-index-name-link:link,
+a.follow-index-name-link:visited {
+  color: #333333;
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.follow-index-name {
+  text-align: center;
+  margin-top: 5px;
+}
+.follow-index-button {
+  text-align: center;
+  margin: 5px 0 10px 0;
+}
+
+

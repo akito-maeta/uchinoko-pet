@@ -1,21 +1,35 @@
-<div class="">
-  <% @users.each do |user| %>
-    <%= link_to user_path(user) do %>
-    <div class="">
-      <%= attachment_image_tag user, :image, :fill, 180, 180, class: "img-circle pull-left profile-thumb" %>
-    </div>
-    <div class="">
-      名前<%= user.pet_name %>
-    </div>
-    <% end %>
-    <% if user_signed_in? && user != current_user %>
-    <div class="follow">
-      <% if current_user.following?(user) %>
-        <%= render 'relationships/unfollow', user: user %>
-      <% else %>
-        <%= render 'relationships/follow', user: user %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="follow-index-area">
+      <% @users.each do |user| %>
+        <div class="follow-item">
+          <%= link_to(user_path(user), class: 'follow-index-name-link') do %>
+            <div class="follow-index-pro">
+            <%= attachment_image_tag user, :image, size: "180x180", fallback: "noimage.jpg", class: "img-circle follow-index-img" %>
+            </div>
+            <div class="follow-index-name">
+              <%= user.pet_name.truncate(15) %>
+            </div>
+          <% end %>
+          <% unless user == current_user %>
+            <div class="follow-index-button">
+              <% if current_user.following?(user) %>
+                <div class="followed-button">
+                  <%= link_to(user_relationships_path(user.id), method: :delete, class: 'unfollow-link') do %>
+                    <i class="fas fa-user-plus"></i>  フォロー中
+                   <% end %>
+                </div>
+              <% else %>
+                <div class="follow-button">
+                  <%= link_to(user_relationships_path(user.id), method: :post, class: 'follow-link') do %>
+                    <i class="fas fa-user-check"></i>  フォローする
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <% end %>
-  <% end %>
+  </div>
 </div>

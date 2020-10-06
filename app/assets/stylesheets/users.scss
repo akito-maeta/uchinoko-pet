@@ -1,3 +1,129 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-top {
+  margin: 50px 0 0 0;
+}
+//ペット画像
+.user-show-pro {
+  text-align: center;
+}
+.user-show-img {
+  border: 1px solid #a6a6a6;
+}
+//プロフィール編集
+user-edit-button a,
+a.user-edit-link:hover,
+a.user-edit-link:active,
+a.user-edit-link:visited,
+a.user-edit-link:link {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  font-size: 12px;
+  color: #ff5500;
+  line-height: 30px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px #ff5500 solid;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+//フォロー
+.follow-button-box {
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+//フォローされている状態
+.followed-button a,
+a.unfollow-link:hover,
+a.unfollow-link:active,
+a.unfollow-link:visited,
+a.unfollow-link:link {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  font-size: 12px;
+  color: #ffffff;
+  line-height: 30px;
+  text-align: center;
+  background: #ff5500;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+//フォローされていない状態
+.follow-button a,
+a.follow-link:hover,
+a.follow-link:active,
+a.follow-link:visited,
+a.follow-link:link {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  font-size: 12px;
+  color: #ff5500;
+  line-height: 30px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px #ff5500 solid;
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+//ユーザーのフォロー中フォロワー数
+.user-follow-box {
+  padding: 10px 10% 0;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+.user-following
+.user-followers
+a.user-follow-link:hover,
+a.user-follow-link:active,
+a.user-follow-link:visited,
+a.user-follow-link:link {
+  font-size: 16px;
+  color: #333333;
+  text-decoration: none;
+}
+//ユーザー情報
+.user-show-petname {
+  font-size: 30px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+.user-show-introduction {
+  margin-top: 10px;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+.user-show-name {
+  margin: 20px 10px 0 0;
+  text-align: right;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 600;
+  color: #333333;
+}
+.user-map {
+  font-size: 17px;
+  color: #333333;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+.user-show-border {
+  margin: 10px 0;
+  border-top: 1px solid #999999;
+}
