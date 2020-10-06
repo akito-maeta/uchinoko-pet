@@ -1,39 +1,86 @@
-<h2>Sign up</h2>
+<div class="regi-box">
+  <div class="regi-box-inner">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <h1 class="sign">新規登録</h1>
 
-  <div class="field">
-    <%= f.label :飼い主さんの名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="row">
+        <div class="col-sm-5 col-sm-offset-1 ">
+          <div class="regi-img">
+            <%= f.label :image, "ベストショット　" %><span class="label label-danger">必須</span><br />
+            <img width=200 height=200 src="#" class='hidden' />
+              <%= attachment_image_tag @user, :image, fallback: "noimage.jpg", size:"200x200", class: "img-circle pull-left profile-thumb" %>
+
+            <div class="regi-attachment-field">
+              <%= f.attachment_field :image, :id => 'pet_img' %>
+            </div>
+          </div>
+          <div class="regi-box-name">
+            <%= f.label :introduction, "紹介文　" %><span class="label label-info">任意</span><br />
+            <%= f.text_area :introduction, autocomplete: "introduction", class: "textlines" %>
+          </div>
+        </div>
+
+        <div class="col-sm-6 ">
+          <div class="regi-box-name">
+            <%= f.label :name, "飼い主さんニックネーム　" %><span class="label label-danger">必須</span><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => "例）オーナー太郎" %>
+          </div>
+
+          <div class="regi-box-petname">
+            <%= f.label :pet_name, "ペットネーム　" %><span class="label label-danger">必須</span><br />
+            <%= f.text_field :pet_name, autofocus: true, autocomplete: "pet_name", :placeholder => "例）ポチ" %>
+          </div>
+
+          <div class="regi-box-email">
+            <%= f.label :email, "メールアドレス　" %><span class="label label-danger">必須</span><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "半角英数記号でご入力ください" %>
+          </div>
+
+          <div class="regi-box-password">
+            <%= f.label :password, "パスワード　" %><span class="label label-danger">必須</span>
+            <% if @minimum_password_length %>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", :placeholder => "６文字以上でご入力ください" %>
+          </div>
+
+          <div class="regi-box-password_confirmation">
+            <%= f.label :password_confirmation, "パスワード(確認用)　" %><span class="label label-danger">必須</span><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "６文字以上でご入力ください" %>
+          </div>
+
+          <div class="box-signup">
+            <%= f.submit "アカウントを登録する" %>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :うちのこの名前 %><br />
-    <%= f.text_field :pet_name, autofocus: true, autocomplete: "pet_name" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%# ここから画像プレビュー機能(jquery) %>
+<script>
+  $( document ).on('turbolinks:load', function() {
+    function readfile(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('.profile-thumb').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#pet_img").change(function(){
+      $('.profile-thumb').removeClass('hidden');
+      $('.default_img').remove();
+      readfile(this);
+    });
+  });
+</script>
+<%# ここまで画像プレビュー機能(jquery) %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>

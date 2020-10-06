@@ -21,10 +21,14 @@ class PostsController < ApplicationController
     @posts = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
   end
 
+  def likedby
+    @post = Post.find(params[:id])
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def edit

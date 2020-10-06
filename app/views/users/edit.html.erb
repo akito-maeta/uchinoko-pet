@@ -26,5 +26,10 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
   <%= f.submit "登録内容を保存する" %>
 <% end %>

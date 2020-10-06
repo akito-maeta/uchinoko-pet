@@ -1,0 +1,10 @@
+<%= form_with model:[post, comment], data: {remote: true} do |f| %>
+  <div class="comment-form-button clearfix">
+    <div class="comment-form-area">
+      <%= f.text_field :body, :placeholder => "コメントを書く", autocomplete: "off", class: "comment-textlines" %>
+    </div>
+    <div class="comment-submit-button">
+      <%= f.submit '投稿' %>
+    </div>
+  </div>
+<% end %>

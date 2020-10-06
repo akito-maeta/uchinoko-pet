@@ -1,42 +1,109 @@
-<h2><%= @user.name %>のマイページ</h2>
+<div class="row user-show-top">
+  <div class="col-lg-3 col-lg-offset-1">
+    <div class="user-show-pro">
+      <%= attachment_image_tag @user, :image, size: "180x180", fallback: "noimage.jpg", class: "img-circle user-show-img" %>
+    </div>
+    <div class="follow-container">
+      <div class="follow-button-box">
+        <% unless @user == current_user %>
+          <% if current_user.following?(@user) %>
+            <div class="followed-button">
+              <%= link_to(user_relationships_path(@user.id), method: :delete, class: 'unfollow-link') do %>
+                <i class="fas fa-user-plus"></i>  フォロー中
+               <% end %>
+            </div>
+          <% else %>
+            <div class="follow-button">
+              <%= link_to(user_relationships_path(@user.id), method: :post, class: 'follow-link') do %>
+                <i class="fas fa-user-check"></i>  フォローする
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+        <div class="user-edit-button">
+          <%= link_to '編集する', edit_user_path, class: 'user-edit-link' %>
+        </div>
+        <% end %>
+      </div>
+      <div class="user-follow-box">
+        <p class="user-following">
+          <%= link_to(user_following_path(@user), class: 'user-follow-link') do %>
+            フォロー中<br>
+            <%= @user.follower.count %>
+          <% end %>
+        </p>
+        <p class="user-followers">
+          <%= link_to(user_followers_path(@user), class: 'user-follow-link') do %>
+            フォロワー<br>
+            <%= @user.followed.count %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
 
-<h3>登録情報</h3>
-  <%= link_to '編集する', edit_user_path %>
+  <div class="col-lg-4">
+    <div class="info-container">
+      <div class="user-show-petname">
+        <%= @user.pet_name %>
+      </div>
+      <div class="user-show-introduction">
+        <%= simple_format @user.introduction %>
+      </div>
+      <div class="user-show-name">
+        オーナー <%= @user.name %>
+      </div>
 
-<%= attachment_image_tag @user, :image, :fill, 140, 140, class: "img-circle pull-left profile-thumb" %>
-<table>
-  <tr>
-    <td>ペットネーム</td>
-    <td><%= @user.pet_name %></td>
-  </tr>
-  <tr>
-    <td>紹介</td>
-    <td><%= @user.introduction %></td>
-  </tr>
-  <tr>
-    <td>オーナー</td>
-    <td><%= @user.name %></td>
-  </tr>
-</table>
 
-<h1><%= @user.pet_name %>のできごと一覧</h1>
+     <%= link_to 'いいね一覧', likes_user_path(@user) %>
+   </div>
+  </div>
+  <div class="col-lg-3">
+    <p class="user-map">
+      <i class="fas fa-map-marker-alt"></i>お気に入りの場所
+    </p>
+    <div id="map" style='width: 100%; height: 250px;'></div>
+  </div>
+  <div class="col-lg-1">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1 user-show-border"></div>
+</div>
+
+  <div class="row user-show-index">
+  <div class="col-lg-12">
+<h1>できごと一覧</h1>
 
 <%= render 'posts/index', post: @post %>
 
-
-<% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete %>
-  <% else %>
-    <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post %>
-  <% end %>
-<% end %>
+</div>
+</div>
 
 
-<p><%= link_to user_following_path(@user) do %>
-following <%= @user.follower.count %>
-  <% end %></p>
 
-<p><%= link_to user_followers_path(@user) do %>
- followers <%= @user.followed.count %>
- <% end %></p>
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": <%= @user.latitude %>,
+          "lng": <%= @user.longitude %>,
+      "infowindow": '<p></p><p><%= @user.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@user.latitude},#{@user.longitude}&iwloc=J",target: "_blank" %></p>'
+        }
+      ]);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setZoom(17);
+    });
+  </script>

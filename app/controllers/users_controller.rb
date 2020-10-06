@@ -15,9 +15,10 @@ def show
     redirect_to user_path(@user)
   end
 
+
   private
   def user_params
-    params.require(:user).permit(:name, :pet_name, :image, :email, :introduction)
+    params.require(:user).permit(:name, :pet_name, :image, :email, :introduction, :address, :latitude, :longitude)
   end
 
 end

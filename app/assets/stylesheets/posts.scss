@@ -2,6 +2,67 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//new
+//全体
+.post-caption {
+  text-align: center;
+}
+.new-box {
+  padding: 0 10%;
+}
+//画像部分
+.default_img {
+  border: 1px #ccc solid;
+  margin: 0 10% 10px;
+}
+#img_prev {
+  margin: 0 10% 10px;
+}
+.post-attachment {
+  margin: 0 10% 10px;
+}
+//タイトル
+.post-box-title input[type="text"] {
+  border-style: none;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  padding: 0 5px;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+//本文
+.post-textlines {
+  margin-bottom: 15px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  padding: 0 5px;
+  width: 100%;
+  height: 110px;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+//シェアボタン
+.post-box-submit input[type="submit"] {
+  border-style: none;
+  width: 100%;
+  height: 40px;
+  background: #f50;
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+
+
+//index
+//index-レイアウト
 .area {
   display: flex;
   flex-wrap: wrap;
@@ -9,8 +70,248 @@
 .item {
   padding: 0 0 20px 20px;
 }
-
 .new-area {
   display: flex;
   justify-content: around;
+}
+//index-投稿タイトル名
+a.post-title-link:hover,
+a.post-title-link:active,
+a.post-title-link:link,
+a.post-title-link:visited {
+  font-size: 15px;
+  color: #333333;
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.post-title {
+  margin-top: 4px;
+}
+//index-投稿者名
+a.petname-link:hover,
+a.petname-link:active,
+a.petname-link:link,
+a.petname-link:visited {
+  font-size: 12px;
+  text-decoration: none;
+  color: #999999;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+
+//index-いいね
+//いいねする時の動き
+a.liked-link:hover,
+a.liked-link:active,
+a.liked-link:link {
+  border: 1px #bbbbbb solid;
+  color: #333333;
+  text-decoration: none;
+}
+//いいねされている状態
+.box-like a {
+  display: block;
+  width: 25%;
+  height: 20px;
+  font-size: 12px;
+  color: #ff5500;
+  line-height: 20px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+}
+//いいね外される時の動き
+a.like-link:hover,
+a.like-link:active,
+a.like-link:link {
+  border: 1px #ff5500 solid;
+  color: #ff5500;
+  text-decoration: none;
+}
+//いいねされていない状態
+.box-liked a {
+  display: block;
+  width: 25%;
+  height: 20px;
+  font-size: 12px;
+  color: #333333;
+  line-height: 20px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+}
+
+
+
+//詳細
+.show-right-box {
+  width: 100%;
+  height: 280px;
+  position: relative;
+}
+.post-show-pro-name {
+  width: 100%;
+  height: 60px;
+}
+.post-show-profile {
+  margin: 10px 5px 10px 10px;
+  float: left;
+}
+.post-show-img-pro {
+  border: 1px #e5e5e5 solid;
+}
+.post-show-petname {
+  width: 150px;
+  line-height: 60px;
+  float: left;
+}
+a.post-show-petname-link:hover,
+a.post-show-petname-link:active,
+a.post-show-petname-link:visited,
+a.post-show-petname-link:link {
+  color: #333333;
+  text-decoration: none;
+}
+.post-show-follow {
+}
+.kk{
+  width: 100%;
+  border: 0.5px #e5e5e5 solid;
+}
+.post-show-title {
+  font-size: 20px;
+  color: #333333;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+//show-いいね
+//いいねする時の動き
+a.show-liked-link:hover,
+a.show-liked-link:active,
+a.show-liked-link:link {
+  border: 1px #bbbbbb solid;
+  color: #333333;
+  text-decoration: none;
+}
+//いいねされている状態
+.show-box-like a {
+  display: block;
+  width: 60px;
+  height: 25px;
+  font-size: 14px;
+  color: #ff5500;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+}
+//いいね外される時の動き
+a.show-like-link:hover,
+a.show-like-link:active,
+a.show-like-link:link {
+  border: 1px #ff5500 solid;
+  color: #ff5500;
+  text-decoration: none;
+}
+//いいねされていない状態
+.show-box-liked a {
+  display: block;
+  width: 60px;
+  height: 25px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px #e5e5e5 solid;
+  text-decoration: none;
+  position: absolute;
+  bottom: 0;
+}
+
+//コメント
+.comment {
+  width: 100%;
+  color: black;
+}
+.comment-create {
+  width: 100%;
+}
+.comment-area {
+  width: 100%;
+}
+.comment-item {
+  width: 100%;
+  color: black;
+  padding: 10px 10px 10px 0;
+}
+.comment-left-box {
+  float: left;
+  width: 9%;
+}
+.comment-avatar {
+}
+.comment-right-box {
+  width: 91%;
+  float: left;
+}
+.comment-name-date {
+  height: 20px;
+  margin-leht: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.comment-petname {
+  height: 20px;
+  line-height: 20px;
+}
+.comment-date {
+  height: 20px;
+  line-height: 20px;
+}
+.comment-body-button {
+  display: flex;
+  justify-content: space-between;
+}
+.comment-button {
+  border: 1px #e5e5e5 solid;
+}
+
+//コメント入力フォーム
+.comment-form-area {
+  margin: 20px 0 0 0;
+}
+.comment-textlines {
+  border: 1px solid #a6a6a6;
+  border-radius: 3px 0 0 3px;
+  padding: 5px 5px;
+  width: 90%;
+  height: 30px;
+  font-size: 15px;
+  float: left;
+}
+.comment-submit-button input[type="submit"] {
+  border-style: none;
+  width: 10%;
+  height: 30px;
+  background: #f50;
+  border-radius: 0 3px 3px 0;
+  color: #ffffff;
+  font-weight: 400;
+  float: left;
+}
+
+
+
+h6 {
+  color: black;
 }
