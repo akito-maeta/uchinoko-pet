@@ -20,7 +20,7 @@
     <nav>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="li-home"><%= link_to 'ホーム', posts_path, class: "navlink" %></li>
+          <li class="li-home"><%= link_to 'みんなの投稿', posts_path, data: {"turbolinks" => false}, class: "navlink" %></li>
           <li class="li-new"><%= link_to '投稿する', new_post_path, class: "navlink" %></li>
           <li class="dropdown li-name">
             <a class="dropdown-toggle item link li-name" data-toggle="dropdown">

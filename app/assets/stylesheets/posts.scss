@@ -63,6 +63,47 @@
 
 //index
 //index-レイアウト
+//選択ボックス
+.choose-box {
+  margin: 30px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#switch {
+  display: block;
+  list-style: none;
+  overflow: hidden;
+}
+.btn {
+  margin: 0 0 20px 10px;
+  padding: 5px;
+  font-size: 1.6rem;
+  text-align: center;
+  background: #999999;
+  color: #ffffff;
+  border-bottom: 4px solid rgba(0, 0, 0, .2);
+}
+.btn:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+.inactive {
+  opacity: .5;
+}
+.inactive:hover {
+  opacity: .5;
+  cursor: default;
+}
+.boxDisplay {
+  display: block;
+}
+.boxNone {
+  display: none;
+}
+
+
 .area {
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +192,6 @@ a.like-link:link {
 .show-right-box {
   width: 100%;
   height: 280px;
-  position: relative;
 }
 .post-show-pro-name {
   width: 100%;
@@ -189,6 +229,11 @@ a.post-show-petname-link:link {
   font-weight: 400;
   text-align: center;
 }
+
+//show-いいね・編集・削除ボタン
+.show-detail-like {
+  margin-top: 15px;
+}
 //show-いいね
 //いいねする時の動き
 a.show-liked-link:hover,
@@ -210,8 +255,8 @@ a.show-liked-link:link {
   border-radius: 3px;
   border: 1px #e5e5e5 solid;
   text-decoration: none;
-  position: absolute;
-  bottom: 0;
+  margin-right: 15px;
+  float: left;
 }
 //いいね外される時の動き
 a.show-like-link:hover,
@@ -233,11 +278,40 @@ a.show-like-link:link {
   border-radius: 3px;
   border: 1px #e5e5e5 solid;
   text-decoration: none;
-  position: absolute;
-  bottom: 0;
+  margin-right: 15px;
+  float: left;
+}
+//いいねした人へのリンク・編集・削除
+a.likedby-link:hover,
+a.likedby-link:active,
+a.likedby-link:link {
+  color: #333333;
+  text-decoration: none;
+  border: 1px #333333 solid;
+  border-radius: 3px;
+  float: left;
+}
+.post-show-likedby a,
+.post-edit-button a,
+.post-destroy-button a{
+  width: 60px;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  color: #999999;
+  border: 1px #999999 solid;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+}
+.post-destroy-button,
+.post-edit-button {
+  float: right;
+  margin-left: 15px;
 }
 
 //コメント
+//コメント表示部分
 .comment {
   width: 100%;
   color: black;
@@ -273,6 +347,7 @@ a.show-like-link:link {
 .comment-petname {
   height: 20px;
   line-height: 20px;
+  color: #999999;
 }
 .comment-date {
   height: 20px;
@@ -282,13 +357,16 @@ a.show-like-link:link {
   display: flex;
   justify-content: space-between;
 }
-.comment-button {
-  border: 1px #e5e5e5 solid;
+a.comment-user-namelink:hover,
+a.comment-user-namelink:active,
+a.comment-user-namelink:link {
+  color: #999999;
+  text-decoration: none;
 }
 
 //コメント入力フォーム
 .comment-form-area {
-  margin: 20px 0 0 0;
+  margin: 15px 0 0 0;
 }
 .comment-textlines {
   border: 1px solid #a6a6a6;
@@ -315,3 +393,7 @@ a.show-like-link:link {
 h6 {
   color: black;
 }
+
+
+
+

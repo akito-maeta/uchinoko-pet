@@ -15,14 +15,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-  end
-
-  def likerank
-    @posts = Post.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
-  end
-
-  def likedby
-    @post = Post.find(params[:id])
+    @user = current_user
+    @users = @user.following_user.order("created_at DESC")
   end
 
   def show

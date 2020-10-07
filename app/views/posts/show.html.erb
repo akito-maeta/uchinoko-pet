@@ -28,23 +28,29 @@
       <div class="post-show-introduction">
         <%= simple_format render_with_hashtags(@post.introduction) %>
       </div>
-
-      <% if @post.user == current_user %>
-        <%= link_to "編集する", edit_post_path(@post) %>
-
-        <%= link_to "削除", post_path(@post), method: :delete %>
-      <% end %>
-
-
-      <div class="show_like_<%= @post.id %>">
-        <%= render 'detail', post: @post %>
-      </div>
-
-      <%= link_to "この投稿をいいねした人", post_likedby_path(@post)  %>
-
-      <div class="col-lg-3">
-      </div>
     </div>
+  </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 clearfix">
+    <div class="show_like_<%= @post.id %>">
+      <%= render 'detail', post: @post %>
+    </div>
+    <% if @post.user == current_user %>
+      <div class="post-destroy-button">
+        <%= link_to(post_path(@post), method: :delete, class: 'post-show-destroylink') do %>
+          <i class="fas fa-trash"></i> 削除
+        <% end %>
+      </div>
+      <div class="post-edit-button">
+        <%= link_to(edit_post_path(@post), class: 'post-show-editlink') do %>
+          <i class="fas fa-pencil-alt"></i> 編集
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 

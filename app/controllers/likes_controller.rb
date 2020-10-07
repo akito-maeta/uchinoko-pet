@@ -12,4 +12,8 @@ class LikesController < ApplicationController
     like.destroy
   end
 
+  def likedby
+    @post = Post.find(params[:post_id])
+  end
+
 end

@@ -1,0 +1,4 @@
+<% @post.likes.each do |like| %>
+  <%= like.user.pet_name %>
+  <%= attachment_image_tag like.user, :image, size: "180x180", fallback: "noimage.jpg", class: "img-circle follow-index-img" %>
+<% end %>
