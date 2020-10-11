@@ -1,3 +1,117 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.about-icon {
+  width: 100%;
+}
+
+.about-box {
+  position: relative;
+}
+.about-box .about-title {
+  position: absolute;
+  top: 20%;
+  left: 42%;
+  font-size: 3vw;
+  color: #ffffff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+.about-box .about-caption {
+  position: absolute;
+  top: 40%;
+  left: 34%;
+  text-align: center;
+  font-size: 1.5vw;
+  color: #ffffff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 300;
+}
+
+.about-signuplink {
+  line-height: 3vw;
+  color: #ffffff;
+  text-decoration: none;
+}
+a.about-signuplink:hover,
+a.about-signuplink:active,
+a.about-signuplink:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.about-signup-button {
+  border-style: none;
+  width: 15vw;
+  height: 3vw;
+  background: #f50;
+  border-radius: 3px;
+  color: #ffffff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+.about-box .about-signup-button {
+  position: absolute;
+  top: 65%;
+  left: 40%;
+  font-size: 1.3vw;
+  color: #ffffff;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 300;
+}
+
+.random-box {
+  margin: 30px auto;
+  text-align: center;
+}
+.random-title {
+  margin-top: 90px;
+  text-align: center;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+}
+.random-img {
+  margin: 10px 15px 10px 15px;
+}
+
+
+//スクロール
+#loopslider {
+  margin: 0 auto;
+  width: 100%;
+  height: 180px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+#loopslider ul {
+  height: 180px;
+  float: left;
+  display: inline;
+  overflow: hidden;
+}
+
+#loopslider ul li {
+  width: 180px;
+  height: 180px;
+  float: left;
+  display: inline;
+  overflow: hidden;
+  margin-right: 40px;
+}
+
+#loopslider ul:after {
+  content: ".";
+  height: 0;
+  clear: both;
+  display: block;
+  visibility: hidden;
+}
+
+#loopslider ul {
+  display: inline-block;
+  overflow: hidden;
+}

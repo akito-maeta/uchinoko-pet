@@ -53,15 +53,15 @@
       <div class="user-show-name">
         オーナー <%= @user.name %>
       </div>
-
-
-     <%= link_to 'いいね一覧', likes_user_path(@user) %>
-   </div>
+      <div class="user-likedpath">
+        <%= link_to(likes_user_path(@user), class: "user-likedlink") do %>
+          <i class="far fa-grin-hearts"></i>  いいねした投稿
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="col-lg-3">
     <p class="user-map">
-      <% @user.address.nil? %>
-      設定されていません
       <i class="fas fa-map-marker-alt"></i>お気に入りの場所
     </p>
     <div id="map" style='width: 100%; height: 250px;'></div>
@@ -75,48 +75,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-4 col-lg-offset-4">
-    <ul id="switch">
-      <li id="a"><i class="fas fa-th"></i>  できごと一覧</li>
-      <li id="b"><i class="far fa-grin-hearts"></i>  いいね一覧</li>
-    </ul>
-  </div>
-  <div class="col-lg-4">
-  </div>
-</div>
-
-<div id="divA">
-  <%= render 'posts/index', post: @post %>
-</div>
-
-<div id="divB">
-  <div class="row">
-    <div class="col-lg-12 area">
-      <% current_user.liked_posts.each do |post| %>
-        <div class="item">
-          <%= link_to(post_path(post), class: 'post-title-link') do %>
-            <div class="post-index-img">
-              <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
-            </div>
-            <div class="post-title">
-              <%= post.title.truncate(15) %>
-            </div>
-          <% end %>
-          <div class="post-petname">
-            <%= link_to post.user.pet_name.truncate(15), user_path(post.user), class: "petname-link" %>
-          </div>
-          <div class="index_like_<%= post.id %>">
-            <%= render 'posts/post', post: post %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-
+<%= render 'posts/index', post: @post %>
 
 
 

@@ -19,15 +19,17 @@
             <div class="post-index-img">
               <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
             </div>
-            <div class="post-title">
-              <%= post.title.truncate(15) %>
+            <div class="bottle">
+              <div class="post-title">
+                <%= post.title.truncate(15) %>
+              </div>
+            <% end %>
+            <div class="post-petname">
+              <%= link_to post.user.pet_name.truncate(15), user_path(post.user), class: "petname-link" %>
             </div>
-          <% end %>
-          <div class="post-petname">
-            <%= link_to post.user.pet_name.truncate(15), user_path(post.user), class: "petname-link" %>
-          </div>
-          <div class="index_like_<%= post.id %>">
-            <%= render 'posts/post', post: post %>
+            <div class="index_like_<%= post.id %>">
+              <%= render 'posts/post', post: post %>
+            </div>
           </div>
         </div>
       <% end %>

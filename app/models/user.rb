@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # バリデーション
-  validates :name, presence: true, length: { maximum: 20 }, uniqueness: true
+  validates :name, presence: true, length: { maximum: 20 }
   validates :pet_name, presence: true, length: { maximum: 20 }
   validates :introduction, length: { maximum: 200 }
   validates :address, length: { maximum: 200 }
@@ -38,5 +38,12 @@ class User < ApplicationRecord
   # フォロー確認をおこない、フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
+  end
+
+
+  def self.guest
+    find_or_create_by!(name: 'ゲストさん', pet_name: 'ゲスト', email: 'guest@guest.work', address: '新宿御苑') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
   end
 end

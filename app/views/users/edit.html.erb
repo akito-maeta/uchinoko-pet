@@ -1,35 +1,68 @@
-  <h2>マイページ編集</h2>
+<h1 class="sign">登録情報編集</h1>
+<div class="row">
+  <%= form_for(@user) do |f| %>
+    <div class="col-sm-4 col-sm-offset-2 ">
+      <div class="regi-img">
+        <%= f.label :image, "ベストショット　" %><span class="label label-info">任意</span><br />
+          <img width=200 height=200 src="#" class='hidden' />
+            <%= attachment_image_tag @user, :image, fallback: "noimage.jpg", size:"200x200", class: "img-circle pull-left profile-thumb" %>
+        <div class="regi-attachment-field">
+              <%= f.attachment_field :image, :id => 'pet_img' %>
+        </div>
+      </div>
 
-<%= form_for(@user) do |f| %>
+      <div class="regi-box-address">
+        <%= f.label :address, "お気に入りの場所　" %><span class="label label-info">任意</span><br />
+        <%= f.text_field :address, autofocus: true, :placeholder => "〇〇公園" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.attachment_field :image %>
-  </div>
+    <div class="col-sm-4">
+      <div class="regi-box-name">
+        <%= f.label :name, "飼い主さんニックネーム　" %><span class="label label-danger">必須</span><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", :placeholder => "例）オーナー太郎" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :飼い主さんの名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+      <div class="regi-box-petname">
+        <%= f.label :pet_name, "ペットネーム　" %><span class="label label-danger">必須</span><br />
+        <%= f.text_field :pet_name, autofocus: true, autocomplete: "pet_name", :placeholder => "例）ポチ" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :うちのこの名前 %><br />
-    <%= f.text_field :pet_name, autofocus: true, autocomplete: "pet_name" %>
-  </div>
+      <div class="regi-box-email">
+        <%= f.label :email, "メールアドレス　" %><span class="label label-danger">必須</span><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "半角英数記号でご入力ください" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :紹介 %><br />
-    <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
-  </div>
+      <div class="regi-box-name">
+        <%= f.label :introduction, "紹介文　" %><span class="label label-info">任意</span><br />
+        <%= f.text_area :introduction, autocomplete: "introduction", class: "textlines-user-edit" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="user-update-button">
+        <%= f.submit "登録情報を更新する" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
 
-  <%= f.submit "登録内容を保存する" %>
-<% end %>
+<%# ここから画像プレビュー機能(jquery) %>
+<script>
+  $( document ).on('turbolinks:load', function() {
+    function readfile(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('.profile-thumb').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#pet_img").change(function(){
+      $('.profile-thumb').removeClass('hidden');
+      $('.default_img').remove();
+      readfile(this);
+    });
+  });
+</script>
+<%# ここまで画像プレビュー機能(jquery) %>

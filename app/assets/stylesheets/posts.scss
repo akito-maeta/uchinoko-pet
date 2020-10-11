@@ -102,14 +102,13 @@
 .boxNone {
   display: none;
 }
-
-
+//全体
 .area {
   display: flex;
   flex-wrap: wrap;
 }
 .item {
-  padding: 0 0 20px 20px;
+  padding: 0 0 50px 20px;
 }
 .new-area {
   display: flex;
@@ -138,6 +137,7 @@ a.petname-link:visited {
   color: #999999;
   font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
 
 
 //index-いいね
@@ -388,7 +388,11 @@ a.comment-user-namelink:link {
   float: left;
 }
 
-
+.post-date {
+  text-align: right;
+  color: #333333;
+  font-size: 12px;
+}
 
 h6 {
   color: black;

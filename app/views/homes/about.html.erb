@@ -1,16 +1,87 @@
-<p>うちのこ</p>
-<p>かわいい動物を素敵なオーナーさんから見つけて楽しむことができます。</p>
-<p>うちのこ見ていって</p>
+<div class="row">
+  <div class="col-lg-12 about-box">
+    <%= image_tag 'about6.jpg', class:'about-icon' %>
+    <p class="about-title">うちのこ</p>
+    <p class="about-caption">世界中のかわいいペットを</br>写真を通して共有、発見できるSNSです</p>
 
-<p>どんなことが話題沸騰？
-  ハッシュタグで投稿してみましょう</p>
+      <div class="about-signup-button">
+          <%= link_to "アカウントを作成", new_user_registration_path, class: "about-signuplink" %>
+      </div>
+  </div>
+</div>
 
-
-    <div class="sign_button sign_up_button">
-        <%= link_to "アカウントを新規作成", new_user_registration_path %>
+<div class="row">
+  <h3 class="random-title">みんなの投稿写真</h3>
+  <div class="col-lg-12 random-box">
+    <div id="loopslider">
+      <ul>
+        <% @random.each do |post| %>
+          <li>
+            <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
+          </li>
+        <% end %>
+      </ul>
     </div>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-lg-12">
+    <h3 class="about-follow-title">素敵なオーナーをフォローしてみましょう！</h3>
+    <p>投稿順・いいねが多い順・フォロー中</br>
+    で並べ替えられます。</p>
+  </div>
+</div>
 
-    <div class="sign_button sign_in_button">
+<div class="row">
+  <div class="col-lg-12">
+    <h3 class="about-tag-title">#タグをつけて投稿してみましょう！</h3>
+    <p>同じタグ付けしている投稿もチェック！</p>
+  </div>
+</div>
+
+    <div class="about-signin-button">
       <%= link_to "ログイン", new_user_session_path %>
     </div>
+
+<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+
+
+<script>
+  $(function(){
+    $('#loopslider').each(function(){
+        var loopsliderWidth = $(this).width();
+        var loopsliderHeight = $(this).height();
+        $(this).children('ul').wrapAll('<div id="loopslider_wrap"></div>');
+
+        var listWidth = $('#loopslider_wrap').children('ul').children('li').width();
+        var listCount = $('#loopslider_wrap').children('ul').children('li').length;
+
+        var loopWidth = (listWidth)*(listCount);
+
+        $('#loopslider_wrap').css({
+            top: '0',
+            left: '0',
+            width: ((loopWidth) * 2),
+            height: (loopsliderHeight),
+            overflow: 'hidden',
+            position: 'absolute'
+        });
+
+        $('#loopslider_wrap ul').css({
+            width: (loopWidth)
+        });
+        loopsliderPosition();
+
+        function loopsliderPosition(){
+            $('#loopslider_wrap').css({left:'0'});
+            $('#loopslider_wrap').stop().animate({left:'-' + (loopWidth) + 'px'},80000,'linear');
+            setTimeout(function(){
+                loopsliderPosition();
+            },80000);
+        };
+
+        $('#loopslider_wrap ul').clone().appendTo('#loopslider_wrap');
+    });
+});
+</script>

@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-sm-5 col-sm-offset-1 ">
           <div class="regi-img">
-            <%= f.label :image, "ベストショット　" %><span class="label label-danger">必須</span><br />
+            <%= f.label :image, "ベストショット　" %><span class="label label-info">任意</span><br />
             <img width=200 height=200 src="#" class='hidden' />
               <%= attachment_image_tag @user, :image, fallback: "noimage.jpg", size:"200x200", class: "img-circle pull-left profile-thumb" %>
 

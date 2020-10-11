@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   root 'homes#about'
 
   devise_for :users
+
   resources :posts do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     get 'likedby' => "likes#likedby"
   end
+
   resources :users, only: [:show, :edit, :update] do
     member do
       get :likes
@@ -16,9 +18,12 @@ Rails.application.routes.draw do
     get 'following' => 'relationships#following', as: 'following'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+
   get '/post/hashtag/:name' => "posts#hashtag"
 
-  get '/posts/likerank' => "posts#likerank"
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
 
 
