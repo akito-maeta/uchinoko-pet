@@ -31,12 +31,13 @@
     <p class="about-post-text">
       <span class="under">
         投稿順・いいねが多い順・フォロー中
-      </span>で並べ替えられます。</br>
+      </span>で並べ替えられます</br>
       素敵な投稿にはいいねボタンをクリックして</br>
       自分だけのいいねリストを作成してみましょう！
     </p>
-    <video src="/videos/uchinoko-sort.mp4" width="100%" autoplay muted loop playsinline>
-    </video>
+<div>
+      <%= video_tag("/public/videos/uchinoko-sort.mp4", :controls => true, :loop => true, :size => 20*20) %>
+    </div>
   </div>
   <div class="col-lg-2">
   </div>
