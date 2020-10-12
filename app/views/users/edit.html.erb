@@ -44,25 +44,3 @@
     </div>
   <% end %>
 </div>
-
-
-<%# ここから画像プレビュー機能(jquery) %>
-<script>
-  $( document ).on('turbolinks:load', function() {
-    function readfile(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          $('.profile-thumb').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-    $("#pet_img").change(function(){
-      $('.profile-thumb').removeClass('hidden');
-      $('.default_img').remove();
-      readfile(this);
-    });
-  });
-</script>
-<%# ここまで画像プレビュー機能(jquery) %>

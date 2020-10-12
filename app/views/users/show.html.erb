@@ -77,28 +77,19 @@
 
 <%= render 'posts/index', post: @post %>
 
-
-
-
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers([
-        {
-          "lat": <%= @user.latitude %>,
-          "lng": <%= @user.longitude %>,
-      "infowindow": '<p></p><p><%= @user.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@user.latitude},#{@user.longitude}&iwloc=J",target: "_blank" %></p>'
-        }
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
-    });
-  </script>
+<%# ここからMAPプレビュー %>
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @user.latitude %>,
+        "lng": <%= @user.longitude %>,
+    "infowindow": '<p></p><p><%= @user.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@user.latitude},#{@user.longitude}&iwloc=J",target: "_blank" %></p>'
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17);
+  });
+</script>

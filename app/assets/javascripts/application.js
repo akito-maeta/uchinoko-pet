@@ -19,7 +19,64 @@
 //= require gmaps/google
 //= require_tree .
 
-// posts-indexの選択
+//アバウト画面のロール
+$(function(){
+  $('#loopslider').each(function(){
+    var loopsliderWidth = $(this).width();
+    var loopsliderHeight = $(this).height();
+    $(this).children('ul').wrapAll('<div id="loopslider_wrap"></div>');
+
+    var listWidth = $('#loopslider_wrap').children('ul').children('li').width();
+    var listCount = $('#loopslider_wrap').children('ul').children('li').length;
+
+    var loopWidth = (listWidth)*(listCount);
+
+    $('#loopslider_wrap').css({
+      top: '0',
+      left: '0',
+      width: ((loopWidth) * 2),
+      height: (loopsliderHeight),
+      overflow: 'hidden',
+      position: 'absolute'
+    });
+
+    $('#loopslider_wrap ul').css({
+      width: (loopWidth)
+    });
+    loopsliderPosition();
+
+    function loopsliderPosition(){
+      $('#loopslider_wrap').css({left:'0'});
+      $('#loopslider_wrap').stop().animate({left:'-' + (loopWidth) + 'px'},80000,'linear');
+      setTimeout(function(){
+          loopsliderPosition();
+      },80000);
+    };
+
+    $('#loopslider_wrap ul').clone().appendTo('#loopslider_wrap');
+  });
+});
+
+//user-new/user-edit画像プレビュー機能
+$( document ).on('turbolinks:load', function() {
+  function readfile(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.profile-thumb').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#pet_img").change(function(){
+    $('.profile-thumb').removeClass('hidden');
+    $('.default_img').remove();
+    readfile(this);
+  });
+});
+
+
+// posts-indexの選択ソート
 function clickSwitch() {
   'use strict';
   var isA = 0; // 初期値
@@ -63,3 +120,21 @@ window.onpageshow = function(event) {
      window.location.reload();
   }
 };
+
+//posts-new/posts-editの画像プレビュー
+$( document ).on('turbolinks:load', function() {
+  function readfile(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#post_img").change(function(){
+    $('#img_prev').removeClass('hidden');
+    $('.default_img').remove();
+    readfile(this);
+  });
+});

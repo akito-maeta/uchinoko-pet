@@ -1,4 +1,35 @@
-<% @post.likes.each do |like| %>
-  <%= like.user.pet_name %>
-  <%= attachment_image_tag like.user, :image, size: "180x180", fallback: "noimage.jpg", class: "img-circle follow-index-img" %>
-<% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="follow-index-area">
+      <% @post.likes.each do |like| %>
+        <div class="follow-item">
+          <%= link_to(user_path(like.user), class: 'follow-index-name-link') do %>
+            <div class="follow-index-pro">
+            <%= attachment_image_tag like.user, :image, size: "180x180", fallback: "noimage.jpg", class: "img-circle follow-index-img" %>
+            </div>
+            <div class="follow-index-name">
+              <%= like.user.pet_name.truncate(15) %>
+            </div>
+          <% end %>
+          <% unless like.user == current_user %>
+            <div class="follow-index-button">
+              <% if current_user.following?(like.user) %>
+                <div class="followed-button">
+                  <%= link_to(user_relationships_path(like.user.id), method: :delete, class: 'unfollow-link') do %>
+                    <i class="fas fa-user-plus"></i>  フォロー中
+                   <% end %>
+                </div>
+              <% else %>
+                <div class="follow-button">
+                  <%= link_to(user_relationships_path(like.user.id), method: :post, class: 'follow-link') do %>
+                    <i class="fas fa-user-check"></i>  フォローする
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

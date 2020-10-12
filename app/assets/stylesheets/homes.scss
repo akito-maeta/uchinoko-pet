@@ -75,8 +75,7 @@ a.about-signuplink:link {
 .random-img {
   margin: 10px 15px 10px 15px;
 }
-
-
+//サインインボタン
 .about-signin-button a {
   display: block;
   width: 15vw;
@@ -87,9 +86,8 @@ a.about-signuplink:link {
   text-align: center;
   background: #ffffff;
   border-radius: 3px;
-  border: 2px #ff5500 solid;
+  border: 1px #ff5500 solid;
 }
-
 .about-signin-button a:hover {
   background: #ff5500;
   color: #ffffff;
