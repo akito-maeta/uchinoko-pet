@@ -3,7 +3,7 @@
   <div class="col-lg-12 area">
     <% @post.order("created_at DESC").each do |post| %>
       <div class="item">
-        <%= link_to(post_path(@post.ids), class: 'post-title-link') do %>
+        <%= link_to(post_path(post), class: 'post-title-link') do %>
           <div class="post-index-img">
             <%= attachment_image_tag post, :image, :fill, 180, 180, format: 'jpeg' %>
           </div>

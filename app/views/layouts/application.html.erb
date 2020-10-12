@@ -39,7 +39,7 @@
           <% else %>
             <li class="li-signup"><%= link_to "新規登録", new_user_registration_path, class: "navlink" %></li>
             <li class="li-signin"><%= link_to "ログイン", new_user_session_path, class: "navlink" %></li>
-            <li class="li-guest-signin"><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "navlink" %></li>
+            <li class="li-guest-signin"><%= link_to 'ゲストログイン(閲覧用)', users_guest_sign_in_path, method: :post, class: "navlink" %></li>
           <% end %>
         </ul>
       </nav>

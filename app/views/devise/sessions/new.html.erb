@@ -10,24 +10,11 @@
 
       <div class="box-password">
         <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード" %>
-        <div class="column-right">
-          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
-          <% end %>
-        </div>
       </div>
 
       <div class="box-login">
         <%= f.submit "ログイン" %>
       </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="remember">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, "ログインしたままにする" %>
-        </div>
-      <% end %>
-
     <% end %>
 
     <div class="box-newuser">

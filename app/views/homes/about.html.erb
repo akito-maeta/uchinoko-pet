@@ -25,27 +25,48 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <h3 class="about-follow-title">素敵なオーナーをフォローしてみましょう！</h3>
-    <p>投稿順・いいねが多い順・フォロー中</br>
-    で並べ替えられます。</p>
+<div class="row about-explanation1">
+  <div class="col-lg-8 col-lg-offset-2">
+    <h3 class="about-follow-title">素敵な投稿を探してみましょう！</h3>
+    <p class="about-post-text">
+      <span class="under">
+        投稿順・いいねが多い順・フォロー中
+      </span>で並べ替えられます。</br>
+      素敵な投稿にはいいねボタンをクリックして</br>
+      自分だけのいいねリストを作成してみましょう！
+    </p>
+    <video src="/videos/uchinoko-sort.mp4" width="100%" autoplay muted loop playsinline>
+    </video>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-8 col-lg-offset-2 about-explanation2">
     <h3 class="about-tag-title">#タグをつけて投稿してみましょう！</h3>
-    <p>同じタグ付けしている投稿もチェック！</p>
+    <p class="about-tag-text">
+      #タグをつけて投稿できます。</br>
+      <span class="under">同じタグ付けしている投稿
+      </span>もチェックして</br>
+      同じような投稿者をフォローしてみましょう！</br>
+    </p>
+    <video src="/videos/uchinoko-follow.mp4" width="100%" autoplay muted loop playsinline>
+    </video>
+  </div>
+  <div class="col-lg-2">
   </div>
 </div>
-
-    <div class="about-signin-button">
-      <%= link_to "ログイン", new_user_session_path %>
+<div class="row">
+  <div class="col-lg-12 about-button3">
+    <div class="about-signup-button">
+      <%= link_to "アカウントを作成", new_user_registration_path, class: "about-signuplink" %>
     </div>
-
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-
+    <div class="about-signin-button">
+      <%= link_to "ログイン", new_user_session_path, class: "about-signinlink" %>
+    </div>
+    <div class="about-signin-button">
+        <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "about-signinlink" %>
+    </div>
+  </div>
+</div>
 
 <script>
   $(function(){
