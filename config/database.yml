@@ -30,12 +30,3 @@ production:
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-
-'google-map' => [
-    'apikey' => env('GMAP_API_KEY'),
-],
-
-Geocoder.configure(
-  lookup: :google,              # name of geocoding service (symbol)
-  api_key: ENV['GMAP_API_KEY'], # API key for geocoding service
-)
