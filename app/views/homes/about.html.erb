@@ -25,7 +25,7 @@
 </div>
 
 <div class="row about-explanation1">
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-5">
     <h3 class="about-follow-title">素敵な投稿を探してみましょう！</h3>
     <p class="about-post-text">
       <span class="under">
@@ -35,17 +35,10 @@
       自分だけのいいねリストを作成してみましょう！
     </p>
     <div class="video">
-    <%= video_tag "/videos/uchinoko-sort.mp4", autoplay: true, loop: true, muted: true, :width => '100%' %>
+    <%= image_tag asset_path('sort.jpg'), :width => '100%' %>
+    </div>
   </div>
-
-
-
-
-
-  </div>
-  <div class="col-lg-2">
-  </div>
-  <div class="col-lg-8 col-lg-offset-2 about-explanation2">
+  <div class="col-lg-5 col-lg-offset-1 about-explanation2">
     <h3 class="about-tag-title">#タグをつけて投稿してみましょう！</h3>
     <p class="about-tag-text">
       #タグをつけて投稿できます。</br>
@@ -53,10 +46,9 @@
       </span>もチェックして</br>
       同じような投稿者をフォローしてみましょう！</br>
     </p>
-    <video src="/videos/uchinoko-follow.mp4" width="100%" autoplay muted loop playsinline>
-    </video>
-  </div>
-  <div class="col-lg-2">
+    <div class="video">
+      <%= image_tag asset_path('tag.jpg'), :width => '100%' %>
+    </div>
   </div>
 </div>
 <div class="row">
