@@ -2,14 +2,13 @@
   <div class="col-lg-12 about-box">
     <%= image_tag asset_path('about6.jpg'), class:'about-icon' %>
     <p class="about-title">うちのこ</p>
-    <p class="about-caption">世界中のかわいいペットを</br>写真を通して共有、発見できるSNSです。</p>
+    <p class="about-caption">世界中のかわいいペットを</br>写真を通して共有、発見できるSNSです</p>
 
       <div class="about-signup-button">
           <%= link_to "アカウントを作成", new_user_registration_path, class: "about-signuplink" %>
       </div>
   </div>
 </div>
-= image_tag asset_path('画像パス.拡張子')
 <div class="row">
   <h3 class="random-title">みんなの投稿写真</h3>
   <div class="col-lg-12 random-box">
@@ -36,7 +35,7 @@
       自分だけのいいねリストを作成してみましょう！
     </p>
     <div class="video">
-    <%= video_tag ("/videos/uchinoko-sort.mp4"), autoplay: true, loop: true, muted: true, :width => '100%' %>
+    <%= video_tag "/videos/uchinoko-sort.mp4", autoplay: true, loop: true, muted: true, :width => '100%' %>
   </div>
 
 
