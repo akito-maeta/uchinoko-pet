@@ -78,7 +78,7 @@
 <%= render 'posts/index', post: @post %>
 
 <%# ここからMAPプレビュー %>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEYY']%>">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&key=<%= ENV['GMAP_API_KEYY']%>">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
