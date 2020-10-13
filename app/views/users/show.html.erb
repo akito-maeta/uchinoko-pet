@@ -65,7 +65,6 @@
       <i class="fas fa-map-marker-alt"></i>お気に入りの場所
     </p>
     <div id="map" style='width: 100%; height: 250px;'></div>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEYY']%>"></script>
   </div>
   <div class="col-lg-1">
   </div>
@@ -79,7 +78,7 @@
 <%= render 'posts/index', post: @post %>
 
 <%# ここからMAPプレビュー %>
-<script type="text/javascript">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEYY']%>">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([

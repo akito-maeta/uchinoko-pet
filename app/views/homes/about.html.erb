@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12 about-box">
-    <%= image_tag 'about6.jpg', class:'about-icon' %>
+    <%= image_tag asset_path('about6.jpg'), class:'about-icon' %>
     <p class="about-title">うちのこ</p>
     <p class="about-caption">世界中のかわいいペットを</br>写真を通して共有、発見できるSNSです。</p>
 
@@ -9,7 +9,7 @@
       </div>
   </div>
 </div>
-
+= image_tag asset_path('画像パス.拡張子')
 <div class="row">
   <h3 class="random-title">みんなの投稿写真</h3>
   <div class="col-lg-12 random-box">
@@ -35,12 +35,8 @@
       素敵な投稿にはいいねボタンをクリックして</br>
       自分だけのいいねリストを作成してみましょう！
     </p>
+<%= video_tag asset_path ("/assets/videos/uchinoko-sort.mp4"), controls: true, autoplay: true, loop: true, muted: true %>
 
-<video src="/videos/uchinoko-sort.mp4" width="100%" autoplay muted loop playsinline>
-　<source src="/videos/uchinoko-sort.mp4" type="video/mp4">
-　<source src="/videos/uchinoko-sort.webm" type="video/webm">
-  ※【エラーメッセージ】現在の環境は動画再生に対応しておりません。
-</video>
 
 
 
