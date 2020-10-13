@@ -1,3 +1,7 @@
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GMAP_API_KEY"]%>&callback=initMap">
+</script>
+
 <div class="row user-show-top">
   <div class="col-lg-3 col-lg-offset-1">
     <div class="user-show-pro">
@@ -92,8 +96,4 @@
     handler.fitMapToBounds();
     handler.getMap().setZoom(17);
   });
-</script>
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV["GMAP_API_KEY"]%>&callback=initMap">
 </script>
