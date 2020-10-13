@@ -35,7 +35,9 @@
       素敵な投稿にはいいねボタンをクリックして</br>
       自分だけのいいねリストを作成してみましょう！
     </p>
-<%= video_tag asset_path ("/assets/videos/uchinoko-sort.mp4"), controls: true, autoplay: true, loop: true, muted: true %>
+    <div class="video">
+    <%= video_tag asset_path("/videos/uchinoko-sort.mp4"), autoplay: true, loop: true, muted: true, :width => '100%' %>
+  </div>
 
 
 
