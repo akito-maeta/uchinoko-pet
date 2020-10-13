@@ -115,16 +115,17 @@ function clickSwitch() {
 };
 document.addEventListener("DOMContentLoaded", clickSwitch, false);
 
+
 window.onpageshow = function(event) {
   if (event.persisted) {
-     window.location.reload();
+    window.location.reload();
   }
 };
 
-window.onbeforeunload = function() {
-};
-
-window.onunload = function() {
+  window.onpageshow = function(event) {
+  if (event.persisted) {
+    window.location.reload(true);
+  }
 };
 
 //posts-new/posts-editの画像プレビュー
