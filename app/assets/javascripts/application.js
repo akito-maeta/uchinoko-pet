@@ -127,13 +127,6 @@ window.onbeforeunload = function() {
 window.onunload = function() {
 };
 
-window.addEventListener("pageshow", function(event){
-  if (event.persisted) {
-    window.location.reload();
-  }
-});
-
-
 //posts-new/posts-editの画像プレビュー
 $( document ).on('turbolinks:load', function() {
   function readfile(input) {
