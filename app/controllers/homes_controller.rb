@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
   def about
-    @random = Post.order("RANDOM()")
+    @random = Post.order("RAND()")
   end
 end
